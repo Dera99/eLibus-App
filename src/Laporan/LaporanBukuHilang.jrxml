@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f7edfcf3-3848-48b1-871f-dd66c3ca6f94">
+	<property name="ireport.zoom" value="1.0000000000000016"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="19"/>
+	<parameter name="instansi" class="java.lang.String"/>
+	<parameter name="no" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[1]]></defaultValueExpression>
+	</parameter>
+	<parameter name="alamat" class="java.lang.String"/>
+	<parameter name="img" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT transaksi.Barcode,new_bliblio.Judul,transaksi.TanggalPinjam,transaksi.Keterangan FROM transaksi JOIN Item ON Item.item_code = transaksi.Barcode JOIN new_bliblio ON new_bliblio.IdBliblio = Item.biblio_id WHERE Keterangan='Buku Hilang' ORDER By IdTransaksi]]>
+	</queryString>
+	<field name="Barcode" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Judul" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="TanggalPinjam" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Keterangan" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="nomor" class="java.lang.Integer" resetType="None" calculation="Count">
+		<variableExpression><![CDATA[$V{nomor}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="85" splitType="Stretch">
+			<textField>
+				<reportElement x="143" y="23" width="265" height="23" uuid="17f31124-4a29-4d3b-bfbc-9db746d8ad67"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{instansi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="171" y="59" width="203" height="20" uuid="0b52e6a9-7628-44da-b885-ff9209610405"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{alamat}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="0" y="1" width="146" height="79" uuid="7ff003dc-2614-436e-9fa6-f6102af8b21d"/>
+				<imageExpression><![CDATA[$P{img}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="49" splitType="Stretch">
+			<staticText>
+				<reportElement x="216" y="29" width="135" height="20" uuid="3e57452f-c60e-40db-a2fd-5f90aec2b558"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Laporan Buku Hilang]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" uuid="a39ce962-661f-49c5-86f0-9a25c2760111"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="41" width="41" height="20" uuid="f322f972-bbc1-4d86-ac02-d83afb801f99"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="41" width="41" height="20" uuid="c1ef5de0-0e6c-45d1-b386-84f39a84a585"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[No]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="41" y="41" width="102" height="20" uuid="188e3c51-2111-4187-bf7d-443b045ba421"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="43" y="41" width="100" height="20" uuid="0b6465f2-4f32-48e1-93c5-4c27ea571906"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Barcode]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="143" y="41" width="208" height="20" uuid="b21a740e-31b2-47aa-8547-1b4cf7a85181"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="143" y="41" width="208" height="20" uuid="8da32b3d-12c5-4083-9a1d-48a13a2b8c0c"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Judul]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="351" y="41" width="100" height="20" uuid="88e24002-82c6-4a51-b962-aabfa031b3c2"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="351" y="41" width="100" height="20" uuid="22fc6654-f071-4df0-917b-1ca3a6306a6a"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tanggal Pinjam]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="451" y="41" width="104" height="20" uuid="f5d712db-fae5-49cd-af43-7f4049bb3b96"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="451" y="41" width="104" height="20" uuid="0d1a23b7-dee1-47b1-9034-31adb40ea9ba"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Keterangan]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="41" height="20" uuid="92fc0a26-2648-4fe3-a3d3-bb1280bde284"/>
+			</rectangle>
+			<textField pattern="###0;-###0">
+				<reportElement x="0" y="1" width="41" height="19" uuid="33b70d18-618b-4b0c-9625-f33ea3953e62"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[new Integer($V{nomor}.intValue()+$P{no}.intValue())]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="41" y="0" width="102" height="20" uuid="f2f26183-d956-4bb2-8e85-75fca0011309"/>
+			</rectangle>
+			<textField>
+				<reportElement x="43" y="1" width="100" height="20" uuid="9224cf33-43cd-45b9-9217-17c2a6310921"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{Barcode}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="143" y="0" width="208" height="20" uuid="b4d328f7-23c6-41ff-ba11-d794ed43651a"/>
+			</rectangle>
+			<textField>
+				<reportElement x="143" y="0" width="208" height="20" uuid="7c291279-e9a7-4775-b9ae-7d1a7e2416f0"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{Judul}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="351" y="0" width="100" height="20" uuid="5817eafd-02e6-43a4-86a3-4590cb976ea5"/>
+			</rectangle>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement x="351" y="0" width="100" height="20" uuid="d57aa19f-72fa-4bab-9eb0-43633e1400d6"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{TanggalPinjam}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="451" y="0" width="104" height="20" uuid="0f387f10-f1df-4c5c-93f5-db1f59a2efad"/>
+			</rectangle>
+			<textField>
+				<reportElement x="451" y="0" width="104" height="20" uuid="06285619-24aa-4c46-8114-98574b17df3e"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{Keterangan}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="46" splitType="Stretch">
+			<staticText>
+				<reportElement x="419" y="25" width="123" height="20" uuid="7dd592e3-7333-4d60-897f-77432b88779a"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Kepala Perpustakaan]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="111" splitType="Stretch">
+			<staticText>
+				<reportElement x="419" y="67" width="132" height="20" uuid="d419617b-651d-4b9c-a936-5d3658dae80d"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[(..................................)]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="451" y="0" width="116" height="20" uuid="cb56561a-6298-4eaa-a200-7d92b3539042"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="402" y="0" width="49" height="20" uuid="7b7998b7-ce5a-4897-85e3-9b3372dbf3e6"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Jakarta, ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="54" y="87" width="129" height="20" uuid="84b0939b-0af5-4ded-8118-c60320505ea1"/>
+				<textElement>
+					<font size="8" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Dibuat Oleh Aplikasi Perpustakaan]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="67" width="54" height="20" uuid="53c8f661-5202-4300-ad45-ebbd8cbfee4f"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
