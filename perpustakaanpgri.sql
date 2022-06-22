@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jun 15, 2022 at 06:34 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Host: localhost:3306
+-- Generation Time: Jun 22, 2022 at 04:35 PM
+-- Server version: 5.7.24
+-- PHP Version: 7.4.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -101,8 +101,6 @@ CREATE TABLE `anggota` (
 --
 
 INSERT INTO `anggota` (`Nis`, `Nama`, `IdKelas`, `JK`, `Email`, `Alamat`, `NoHp`, `TTL`, `Profiles`, `add1`, `add2`, `add3`, `add4`, `add5`, `Expired`) VALUES
-(11111, 'Muhammad Atthoriq Aziz', 18, 'L', 'Alamat@email.Siswa', 'JL P Sulawesi', '000088889999', 'Jakarta,22 Oktober 2000', 'newImage20220605121313.jpg', NULL, 'a', 'a', 'a', 'a', '2023-06-13'),
-(11112, 'Yos Patriot', 19, 'L', 'Alamat@email.Siswa', 'CIracas', '000088889999', 'Ciracas,01 Januari 1999', 'Default.png', NULL, '', '', '', '', '2023-05-27'),
 (13218, 'Adhitya Rizky Ardiansyah', 1, 'L', 'Adhitya@mail.com', '', '000088889999', '', 'Default.png', NULL, '', '', '', '', '2023-06-11'),
 (13219, 'Adithya Prayoga', 1, 'L', 'Alamat@email.Siswa', '', '000088889999', '', 'Default.png', NULL, '', '', '', '', '2023-06-11'),
 (13220, 'Aditiya Maulana Sidiq', 1, 'L', 'Alamat@email.Siswa', '', '000088889999', '', 'Default.png', NULL, '', '', '', '', '2023-06-11'),
@@ -349,13 +347,6 @@ CREATE TABLE `bukutidaktersedia` (
   `IdDenda` int(11) NOT NULL,
   `Tanggal` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT;
-
---
--- Dumping data for table `bukutidaktersedia`
---
-
-INSERT INTO `bukutidaktersedia` (`IdRusak`, `Barcode`, `id_bliblio`, `IdDenda`, `Tanggal`) VALUES
-(1, 'SMKPGRI1-184', '21', 1, '2022-06-11');
 
 -- --------------------------------------------------------
 
@@ -5129,13 +5120,6 @@ CREATE TABLE `denda` (
   `Ket` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT;
 
---
--- Dumping data for table `denda`
---
-
-INSERT INTO `denda` (`IdDenda`, `IdTransaksi`, `jenis`, `Barang`, `Nominal`, `Status`, `Ket`) VALUES
-(1, 3, 'Tunai', '-', 50000, '3', 'Menghilangkan Buku');
-
 -- --------------------------------------------------------
 
 --
@@ -5213,7 +5197,7 @@ CREATE TABLE `item` (
   `order_date` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
   `item_status_id` char(3) COLLATE utf8_unicode_ci DEFAULT NULL,
   `site` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `source` int(11) NOT NULL DEFAULT 0,
+  `source` int(11) NOT NULL DEFAULT '0',
   `invoice` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   `price` int(11) DEFAULT NULL,
   `price_currency` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -5228,7 +5212,7 @@ CREATE TABLE `item` (
 --
 
 INSERT INTO `item` (`item_id`, `biblio_id`, `call_number`, `coll_type_id`, `item_code`, `inventory_code`, `received_date`, `supplier_id`, `order_no`, `location_id`, `order_date`, `item_status_id`, `site`, `source`, `invoice`, `price`, `price_currency`, `invoice_date`, `input_date`, `last_update`, `uid`) VALUES
-(1, 1, '813 OKI c', 2, 'SMKPGRI1-0001', 'INV', '2022-05-15', NULL, NULL, 1, '2022-05-13', NULL, NULL, 0, '', 0, NULL, '2022-05-15', '2022-06-10 22:50:56', '2022-06-14 20:23:02', NULL),
+(1, 1, '813 OKI c', 2, 'SMKPGRI1-0001', 'INV', '2022-05-15', NULL, NULL, 3, '2022-05-13', NULL, NULL, 0, '', 0, NULL, '2022-05-15', '2022-06-10 22:50:56', '2022-06-14 20:23:02', NULL),
 (2, 2, '741.5592 TAK k', 2, 'SMKPGRI1-289', 'INV', '2022-05-15', NULL, NULL, 3, '2022-05-13', NULL, NULL, 2, NULL, 0, NULL, '2022-05-15', '2022-06-10 22:50:56', '2022-06-10 22:50:56', NULL),
 (3, 3, '398.259.8 ARY l', 2, 'SMKPGRI1-99', 'INV', '2022-05-15', NULL, NULL, 1, '2022-05-13', NULL, NULL, 2, NULL, 0, NULL, '2022-05-15', '2022-06-10 22:50:56', '2022-06-10 22:50:56', NULL),
 (4, 2, '741.5592 TAK k', 2, 'SMKPGRI1-290', 'INV', '2022-05-15', NULL, NULL, 1, '2022-05-13', NULL, NULL, 2, NULL, 0, NULL, '2022-05-15', '2022-06-10 22:50:56', '2022-06-10 22:50:56', NULL),
@@ -5245,7 +5229,7 @@ INSERT INTO `item` (`item_id`, `biblio_id`, `call_number`, `coll_type_id`, `item
 (15, 15, '332.1 AMS p', 2, 'SMKPGRI-964', 'INV', '2022-05-15', NULL, NULL, 1, '2022-05-13', NULL, NULL, 2, NULL, 0, NULL, '2022-05-15', '2022-06-10 22:50:57', '2022-06-10 22:50:57', NULL),
 (16, 16, '336.2 ATE p', 2, 'SMKPGRI-400', 'INV', '2022-05-15', NULL, NULL, 1, '2022-05-13', NULL, NULL, 2, NULL, 0, NULL, '2022-05-15', '2022-06-10 22:50:57', '2022-06-10 22:50:57', NULL),
 (17, 17, '155.25 MAH k', 2, 'SMKPGRI1-151', 'INV', '2022-05-15', NULL, NULL, 1, '2022-05-13', NULL, NULL, 2, NULL, 0, NULL, '2022-05-15', '2022-06-10 22:50:57', '2022-06-10 22:50:57', NULL),
-(18, 18, '649.1 DEN m', 2, 'SMKPGRI1-268', 'INV', '2022-05-15', NULL, NULL, 3, '2022-05-13', NULL, NULL, 2, NULL, 0, NULL, '2022-05-15', '2022-06-10 22:50:57', '2022-06-10 22:50:57', NULL),
+(18, 18, '649.1 DEN m', 2, 'SMKPGRI1-268', 'INV', '2022-05-15', NULL, NULL, 1, '2022-05-13', NULL, NULL, 2, NULL, 0, NULL, '2022-05-15', '2022-06-10 22:50:57', '2022-06-10 22:50:57', NULL),
 (19, 18, '649.1 DEN m', 2, 'SMKPGRI1-146', 'INV', '2022-05-15', NULL, NULL, 1, '2022-05-13', NULL, NULL, 2, NULL, 0, NULL, '2022-05-15', '2022-06-10 22:50:57', '2022-06-10 22:50:57', NULL),
 (20, 20, '813 KAR c', 2, 'SMKPGRI-437', 'INV', '2022-05-15', NULL, NULL, 1, '2022-05-13', NULL, NULL, 2, NULL, 0, NULL, '2022-05-15', '2022-06-10 22:50:57', '2022-06-10 22:50:57', NULL),
 (21, 21, '813 CAT m', 2, 'SMKPGRI-375', 'INV', '2022-05-15', NULL, NULL, 1, '2022-05-13', NULL, NULL, 2, NULL, 0, NULL, '2022-05-15', '2022-06-10 22:50:57', '2022-06-10 22:50:57', NULL),
@@ -7126,20 +7110,8 @@ CREATE TABLE `notifikasi` (
   `Nis` int(11) NOT NULL,
   `Isi` varchar(100) NOT NULL,
   `Tanggal` date NOT NULL,
-  `Status` int(11) NOT NULL DEFAULT 1
+  `Status` int(11) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
-
---
--- Dumping data for table `notifikasi`
---
-
-INSERT INTO `notifikasi` (`idNotifikasi`, `idJudul`, `Nis`, `Isi`, `Tanggal`, `Status`) VALUES
-(1, 2, 13218, 'Pengembalian Buku Berhasil(Kode Transaksi = 1 )', '2022-06-11', 2),
-(2, 4, 13218, 'Anda Mendapat Denda Merusak/Menghilangkan Buku(Kode Transaksi = 3 )', '2022-06-11', 1),
-(3, 2, 13218, 'Pengembalian Buku Berhasil(Kode Transaksi = 2 )', '2022-06-11', 1),
-(4, 2, 13218, 'Pengembalian Buku Berhasil(Kode Transaksi = 4 )', '2022-06-11', 1),
-(5, 3, 13218, 'Denda Dengan Kode  1 Berhasil Dibayarkan ', '2022-06-11', 1),
-(6, 5, 11111, 'Surat Bebas Pustaka Anda Telah Dicetak, Silahkan Hubungi Petugas Perpustakaan', '2022-06-12', 1);
 
 -- --------------------------------------------------------
 
@@ -7184,8 +7156,9 @@ INSERT INTO `pengunjung` (`IdPengunjung`, `Nama`, `Email`, `Instansi`, `TanggalK
 (1, 'Muhammad Atthoriq Aziz', 'Alamat@email.Siswa', 'Siswa', '2022-06-11 17:49:14'),
 (2, 'Adhitya Rizky Ardiansyah', 'Alamat@email.Siswa', 'Siswa', '2022-06-11 17:50:54'),
 (3, 'Muhammad Atthoriq Aziz', 'Alamat@email.Siswa', 'Siswa', '2022-06-12 19:48:02'),
-(4, 'Muhammad Atthoriq Aziz', 'Alamat@email.Siswa', 'Siswa', '2022-06-15 11:30:14'),
-(5, 'Yos Patriot', 'Alamat@email.Siswa', 'Siswa', '2022-06-15 11:32:03');
+(4, 'Muhammad Atthoriq Aziz', 'Alamat@email.Siswa', 'Siswa', '2022-06-20 18:40:09'),
+(5, 'Muhammad Atthoriq Aziz', 'Alamat@email.Siswa', 'Siswa', '2022-06-22 23:32:16'),
+(6, 'Adhitya Rizky Ardiansyah', 'Adhitya@mail.com', 'Siswa', '2022-06-22 23:34:21');
 
 -- --------------------------------------------------------
 
@@ -7266,18 +7239,6 @@ CREATE TABLE `transaksi` (
   `Keterangan` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT;
 
---
--- Dumping data for table `transaksi`
---
-
-INSERT INTO `transaksi` (`IdTransaksi`, `Barcode`, `id_bliblio`, `Nis`, `TanggalPinjam`, `Tenggat`, `TanggalKembali`, `Status`, `Keterangan`) VALUES
-(1, 'SMKPGRI1-0001', '50', 13218, '2022-06-11', '2022-06-11', '2022-06-11', '4', 'Selesai'),
-(2, 'SMKPGRI1-0001', '50', 13218, '2022-06-11', '2022-06-11', '2022-06-11', '4', 'Selesai'),
-(3, 'SMKPGRI1-184', '21', 13218, '2022-06-11', '2022-06-11', '2022-06-11', '4', 'Buku Hilang'),
-(4, 'SMKPGRI-002', '323', 13218, '2022-06-11', '2022-06-11', '2022-06-11', '4', 'Selesai'),
-(5, 'SMKPGRI1-289', '261', 11112, '2022-06-14', '2022-06-14', '2022-06-15', '2', 'Pending'),
-(6, 'SMKPGRI1-268', '3', 11111, '2022-06-15', '2022-06-15', '2022-06-15', '3', 'Buku Hilang');
-
 -- --------------------------------------------------------
 
 --
@@ -7288,7 +7249,7 @@ CREATE TABLE `user` (
   `Nis` int(10) UNSIGNED NOT NULL,
   `Username` varchar(50) NOT NULL,
   `Password` varchar(50) NOT NULL,
-  `Role` int(11) NOT NULL DEFAULT 3
+  `Role` int(11) NOT NULL DEFAULT '3'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT;
 
 --
@@ -7296,8 +7257,6 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`Nis`, `Username`, `Password`, `Role`) VALUES
-(11111, 'Atthoriq', '11111', 3),
-(11112, '11112', '11112', 3),
 (13218, 'Adhit', 'adhit', 3),
 (13219, '13219', '13219', 3),
 (13220, '13220', '13220', 3),
@@ -7769,13 +7728,13 @@ ALTER TABLE `akses`
 -- AUTO_INCREMENT for table `bukutidaktersedia`
 --
 ALTER TABLE `bukutidaktersedia`
-  MODIFY `IdRusak` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `IdRusak` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `denda`
 --
 ALTER TABLE `denda`
-  MODIFY `IdDenda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `IdDenda` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `gmd`
@@ -7859,7 +7818,7 @@ ALTER TABLE `new_bliblio`
 -- AUTO_INCREMENT for table `notifikasi`
 --
 ALTER TABLE `notifikasi`
-  MODIFY `idNotifikasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `idNotifikasi` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `pengaturan`
@@ -7871,7 +7830,7 @@ ALTER TABLE `pengaturan`
 -- AUTO_INCREMENT for table `pengunjung`
 --
 ALTER TABLE `pengunjung`
-  MODIFY `IdPengunjung` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `IdPengunjung` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `profile`
@@ -7889,7 +7848,7 @@ ALTER TABLE `reqbebaspustaka`
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `IdTransaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `IdTransaksi` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `user`

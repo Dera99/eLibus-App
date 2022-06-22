@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch4jConfig>
+  <dontWrapJar>false</dontWrapJar>
+  <headerType>gui</headerType>
+  <jar>D:\TeraBoxDownload\Aplikasi Manajemen Perpustakaan Sekolah\Perpustakaan_SMK_PGRI_1_Jakarta.jar</jar>
+  <outfile>D:\TeraBoxDownload\Aplikasi Manajemen Perpustakaan Sekolah\Elibus.exe</outfile>
+  <errTitle></errTitle>
+  <cmdLine></cmdLine>
+  <chdir>.</chdir>
+  <priority>normal</priority>
+  <downloadUrl>http://java.com/download</downloadUrl>
+  <supportUrl></supportUrl>
+  <stayAlive>false</stayAlive>
+  <restartOnCrash>false</restartOnCrash>
+  <manifest></manifest>
+  <icon>D:\TeraBoxDownload\Aplikasi Manajemen Perpustakaan Sekolah\eLibus.ico</icon>
+  <jre>
+    <path></path>
+    <bundledJre64Bit>false</bundledJre64Bit>
+    <bundledJreAsFallback>false</bundledJreAsFallback>
+    <minVersion>1.0.0</minVersion>
+    <maxVersion></maxVersion>
+    <jdkPreference>preferJre</jdkPreference>
+    <runtimeBits>64/32</runtimeBits>
+  </jre>
+  <versionInfo>
+    <fileVersion>2.0.0.0</fileVersion>
+    <txtFileVersion>1.0.0.0</txtFileVersion>
+    <fileDescription>Aplikasi Manajemen Perpustakaan Sekolah</fileDescription>
+    <copyright>KKP UNINDRA</copyright>
+    <productVersion>2.0.0.0</productVersion>
+    <txtProductVersion>1.0.0.0</txtProductVersion>
+    <productName>Elibus</productName>
+    <companyName></companyName>
+    <internalName>Elibus</internalName>
+    <originalFilename>Elibus.exe</originalFilename>
+    <trademarks></trademarks>
+    <language>ENGLISH_US</language>
+  </versionInfo>
+</launch4jConfig>
