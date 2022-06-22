@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="792" pageHeight="864" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5caf3137-f378-498a-a9b6-25eba5f039ec">
 	<property name="ireport.zoom" value="1.4641000000000155"/>
 	<property name="ireport.x" value="224"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="96"/>
 	<parameter name="instansi" class="java.lang.String"/>
 	<parameter name="no" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[1]]></defaultValueExpression>
@@ -10,7 +10,7 @@
 	<parameter name="alamat" class="java.lang.String"/>
 	<parameter name="img" class="java.lang.String"/>
 	<queryString>
-		<![CDATA[SELECT anggota.Nis,Nama,kelas.TingkatKelas,kelas.IdJurusan,kelas.Kelas, new_bliblio.Judul,transaksi.TanggalPinjam,transaksi.TanggalKembali,transaksi.Keterangan   FROM anggota JOIN transaksi ON anggota.Nis=transaksi.Nis JOIN kelas ON anggota.IdKelas = kelas.IdKelas JOIN Item ON Item.item_code=transaksi.Barcode JOIN new_bliblio ON new_bliblio.IdBliblio = Item.biblio_id WHERE status = 4 ORDER By transaksi.TanggalPinjam]]>
+		<![CDATA[SELECT anggota.Nis,Nama,kelas.TingkatKelas,kelas.IdJurusan,kelas.Kelas, new_bliblio.Judul,transaksi.TanggalPinjam,transaksi.TanggalKembali,transaksi.Keterangan   FROM anggota JOIN transaksi ON anggota.Nis=transaksi.Nis JOIN kelas ON anggota.IdKelas = kelas.IdKelas JOIN Item ON Item.item_code=transaksi.Barcode JOIN new_bliblio ON new_bliblio.IdBliblio = Item.biblio_id WHERE status = 4 ORDER By transaksi.TanggalKembali]]>
 	</queryString>
 	<field name="Nis" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
